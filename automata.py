@@ -33,6 +33,21 @@ class Automata:
 
             for simbolo, destino in transiciones_estado.items():
 
-                print(
-                    f"δ({estado}, {simbolo}) = {destino}"
-                )
+                print(f"δ({estado}, {simbolo}) = {destino}")
+
+    def detectar_tipo(self):
+        """
+        Determina automáticamente si el autómata es AFD o AFND.
+
+        Si una transición tiene más de un destino,
+        el autómata es no determinista.
+        """
+
+        for estado, transiciones_estado in self.transiciones.items():
+
+            for simbolo, destinos in transiciones_estado.items():
+
+                if isinstance(destinos, list) and len(destinos) > 1:
+                    return "AFND"
+
+        return "AFD"

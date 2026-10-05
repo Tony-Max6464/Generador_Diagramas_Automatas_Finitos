@@ -64,3 +64,12 @@ automata.mostrar()
 validador = Validador(automata)
 
 validador.mostrar_resultado()
+
+
+# ==========================================
+# DETECTAR TIPO DE AUTÓMATA
+# ==========================================
+
+tipo = automata.detectar_tipo()
+
+print("\nTipo de autómata:", tipo)
