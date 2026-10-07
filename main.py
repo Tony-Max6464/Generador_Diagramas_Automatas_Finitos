@@ -1,5 +1,6 @@
 from automata import Automata
 from validador import Validador
+from generador_diagrama import GeneradorDiagrama
 
 
 # ==========================================
@@ -67,9 +68,23 @@ validador.mostrar_resultado()
 
 
 # ==========================================
-# DETECTAR TIPO DE AUTÓMATA
+# DETECTAR TIPO
 # ==========================================
 
 tipo = automata.detectar_tipo()
 
 print("\nTipo de autómata:", tipo)
+
+
+# ==========================================
+# GENERAR DIAGRAMA
+# ==========================================
+
+if validador.validar():
+
+    generador = GeneradorDiagrama(automata)
+
+    generador.generar(
+        nombre_archivo="mi_primer_automata",
+        formato="png"
+    )
